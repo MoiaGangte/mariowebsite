@@ -73,8 +73,13 @@
             text-align: center;
             margin-top: 100px;
             justify-content: center;
+            background-image: url(https://marketingaccesspass.com/wp-content/uploads/2015/10/Podcast-Website-Design-Background-Image.jpg);
         }
-
+        @media (max-width: 768px) {
+            body {
+                background-image: url(https://marketingaccesspass.com/wp-content/uploads/2015/10/Podcast-Website-Design-Background-Image.jpg);
+            }
+        }
         .popup {
             display: none;
             position: fixed;
@@ -124,15 +129,10 @@
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
     </style>
 </head>
 
-<body
-    style="background-image: url(https://pic.616pic.com/bg_w1180/00/14/90/FGH3uNyEaG.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;">
+<body>
     <h1 style="color: white;">Enter you're name</h1>
     <input type="text" id="nameInput" value="Click to Enter your name" onclick="clearOnClick(this)"
         style="width: 180px; height: 40px; font-size: 16px; ">
@@ -160,7 +160,7 @@
         <h3 id="secondaryPopupText">Then do u promise to send him some money?</h3>
         <button class="button" onclick="openFinalPopup()">YESS</button>
         <button class="button" id="button3" onclick="button3Action()">NOOO</button>
-       
+
 
     </div>
 
@@ -233,11 +233,11 @@
             // Hide the secondary popup and show the final popup
             document.getElementById("secondaryPopup").style.display = "none";
             document.getElementById("finalPopup").style.display = "block";
-            document.getElementById("finalPopup").addEventListener("click", function() {
-                setTimeout(function() {
+            document.getElementById("finalPopup").addEventListener("click", function () {
+                setTimeout(function () {
                     window.location.href = "gangte.html";
                 }, 3000);
-                
+
             });
 
             // Ensure the main popup is hidden
