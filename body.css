@@ -1,0 +1,17 @@
+body {
+    background-image: url(https://marketingaccesspass.com/wp-content/uploads/2015/10/Podcast-Website-Design-Background-Image.jpg);
+    width: 1000px;
+    height: 2px solid #ecf0f1;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.img {
+    object-fit: cover;
+    transition: 1s ease;
+}
+
+img:hover {
+    scale(1.4);
+}

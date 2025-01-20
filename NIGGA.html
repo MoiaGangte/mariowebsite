@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+    <title>COMMENT BOX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function WELCOME() {
+            window.open("file:///C:/Users/mario/OneDrive/Desktop/html/allindex.html")
+        }
+    </script>
+    <style>
+        .form-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 0px;
+            flex-direction: column;
+            border-radius: 18px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+            align-items: center;
+            justify-content: center;
+            color: black;
+            height: 100vh;
+
+        }
+
+        textarea {
+            padding: 10px;
+            right: 300px;
+            left: 300px;
+            margin-top: 10px;
+            opacity: 100%;
+            height: 60px;
+            margin-bottom: 100px;
+            background-color: rgb(0, 0, 0, 0);
+            opacity: 80%;
+            border-radius: 8px;
+            border-color: rgb(0, 0, 0);
+            cursor: pointer;
+            color: rgb(255, 255, 255, 1);
+            size: 8px;
+        }
+
+        button {
+            margin: 20px;
+            margin-right: 48px;
+            margin-left: -175px;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            width: 100px;
+            height: 40px;
+            border-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            background-color: rgb(50, 102, 255);
+            cursor: pointer;
+            margin-bottom: 150px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        button:active {
+            opacity: 100%;
+        }
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            justify-content: center;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .button {
+            margin: 30px;
+            padding: 10px 20px;
+            background-color: #264aff;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .notification {
+            display: none;
+            top: 10px;
+            justify-content: center;
+            background-color: #28a745;
+            color: white;
+            position: relative;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url(https://marketingaccesspass.com/wp-content/uploads/2015/10/Podcast-Website-Design-Background-Image.jpg);">
+    <h1 style="color: white;">Enter you're name</h1>
+    <input type="text" id="nameInput" value="Click to Enter your name" onclick="clearOnClick(this)"
+        style="width: 180px; height: 40px; font-size: 16px; ">
+
+    <button class="button" onclick="openPopup()">Submit</button>
+    <script>
+        function clearOnClick(input) {
+            input.value = "";
+        }
+    </script>
+
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Popup -->
+    <div class="popup" id="popup">
+        <h2 id="popupHeading"></h2>
+        <button class="button" onclick="button1Action()">YESS!</button>
+        <button class="button" id="button2" onclick="button2Action()">NOOO</button>
+
+    </div>
+    <!-- Secondary Popup -->
+    <div class="popup" id="secondaryPopup">
+        <h3 id="secondaryPopupText">Then do u promise to send him some money?</h3>
+        <button class="button" onclick="openFinalPopup()">YESS</button>
+        <button class="button" id="button3" onclick="button3Action()">NOOO</button>
+       
+
+    </div>
+
+
+    <!-- Final Popup -->
+    <div class="popup" id="finalPopup">
+        <h3 id="finalPopupText">I know u will pick yes, so now am gonna give a u flower</h3>
+        <button class="button" onclick="showNotification()">OKAY</button>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p style="font-size: 50px;">CONGRATUATION YOU'RE AWESOME!</p>
+    </div>
+    <div class="form-container" style="color: rgb(0, 0, 0);
+    font-size: 20px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; ">(:--SEND FEED BACK TO
+        THE OWNER MAIL!--:)
+        <form id="textForm">
+            <textarea id="textarea" placeholder="Enter text here to send Feedback..." onclick="clearPlaceholder(this)"
+                onblur="restorePlaceholder(this)"
+                style="font-size: 18px; color: rgba(255, 255, 255, 0.937); height: 200px;"></textarea>
+            <button type="submit">Send</button>
+            <script>
+                // Function to clear placeholder on click
+                function clearPlaceholder(textarea) {
+                    textarea.placeholder = ""; // Clear the placeholder text
+                }
+
+                // Function to restore placeholder on blur if textarea is empty
+                function restorePlaceholder(textarea) {
+                    if (textarea.value.trim() === "") {
+                        textarea.placeholder = "Type your message here..."; // Restore the placeholder text
+                    }
+                }
+            </script>
+
+
+            <form>
+                <p id="statusMessage"></p>
+            </form>
+    </div>
+
+    <script>
+        function openPopup() {
+            const name = document.getElementById("nameInput").value.trim();
+            if (name) {
+                // Set the heading with the name
+                document.getElementById("popupHeading").innerText = `${name} do u love ur brother moia`;
+
+                // Show popup and overlay
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
+            } else {
+                alert("Enter the text FRIST!");
+            }
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function button1Action() {
+            // Hide the main popup and show the secondary popup
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("secondaryPopup").style.display = "block";
+        }
+
+        function openFinalPopup() {
+            // Hide the secondary popup and show the final popup
+            document.getElementById("secondaryPopup").style.display = "none";
+            document.getElementById("finalPopup").style.display = "block";
+            document.getElementById("finalPopup").addEventListener("click", function() {
+                setTimeout(function() {
+                    window.location.href = "index.html";
+                }, 3000);
+                
+            });
+
+            // Ensure the main popup is hidden
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function showNotification() {
+            // Hide the final popup
+            document.getElementById("finalPopup").style.display = "none";
+
+            // Show the notification
+            const notification = document.getElementById("notification");
+            notification.style.display = "block";
+
+            // Automatically hide the notification after 3 seconds
+            setTimeout(() => {
+                notification.style.display = "none";
+                document.getElementById("overlay").style.display = "none"; // Remove overlay
+            }, 3000);
+        }
+
+        function button2Action() {
+            const button2 = document.getElementById("button2");
+            const Popup = document.getElementById("popup");
+
+            // Generate random positions for the button within the popup
+            const popupRect = popup.getBoundingClientRect();
+            const buttonWidth = button2.offsetWidth;
+            const buttonHeight = button2.offsetHeight;
+
+            const newX = Math.random() * (popupRect.width - buttonWidth);
+            const newY = Math.random() * (popupRect.height - buttonHeight);
+
+            button2.style.position = "absolute";
+            button2.style.left = `${newX}px`;
+            button2.style.top = `${newY}px`;
+        }
+
+        function button3Action() {
+            const button3 = document.getElementById("button3");
+            const Popup = document.getElementById("secondarypopup");
+
+            // Generate random positions for the button within the popup
+            const popupRect = popup.getBoundingClientRect();
+            const buttonWidth = button3.offsetWidth;
+            const buttonHeight = button3.offsetHeight;
+
+            const newX = Math.random() * (popupRect.width - buttonWidth);
+            const newY = Math.random() * (popupRect.height - buttonHeight);
+
+            button3.style.position = "absolute";
+            button3.style.left = `${newX}px`;
+            button3.style.top = `${newY}px`;
+        }
+
+        // Close popup when overlay is clicked
+        document.getElementById("overlay").onclick = closePopup;
+    </script>
+    <script>
+
+    </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("krYgomRcTfHLDHncW"); // Replace with your EmailJS public key
+        })();
+
+        const form = document.getElementById("textForm");
+        const Textarea = document.getElementById("userText");
+        const statusMessage = document.getElementById("statusMessage");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const textContent = textarea.value;
+            if (!textContent) {
+                alert("lomlom! please enter some text FRIST!")
+                statusMessage.style.color = "red";
+                return;
+            }
+
+            const serviceID = "service_t9ton7m"; // Replace with your EmailJS service ID
+            const templateID = "template_qrllf5r"; // Replace with your EmailJS template ID
+
+            emailjs.send(serviceID, templateID, {
+                message: textContent,
+                to_email: "moiagangte9@gmail.com", // Replace with your Gmail address
+            })
+
+                .then(() => {
+                    alert("YoYo! Message send successfully to MoiaGangte gmail!")
+                    statusMessage.textcontext = "Thank you for you're coporation";
+                    textarea.value = ""; // Clear the text area
+                })
+
+                .catch((error) => {
+                    alert("DAMN IT!!! message not delivered!")
+                    statusMessage.textcontext = "message not send";
+                    statusMessage.style.color = "red";
+                });
+        });
+
+        function clearText() {
+            textarea.value = "";
+            statusMessage.textContent = "";
+        }
+    </script>
+
+</body>
+
+</html>
